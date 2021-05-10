@@ -1,0 +1,30 @@
+.message-field{
+    display: flex;
+    flex-direction: column;
+}
+.message{
+    margin: 10px;
+    width: fit-content;
+    padding: 10px;
+    border-radius: 5px;
+
+    &_pos-right{
+        align-self: flex-end;
+        background-color: #00af9c;
+    }
+    &_pos-left{
+        align-self: flex-start;
+        background-color: #707070;
+    }
+}
+
+.form{
+
+    &__inp{
+        width: 93%;
+        padding: 5px;
+    }
+    &__sbm{
+        padding: 5px;
+    }
+}

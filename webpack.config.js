@@ -5,7 +5,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 module.exports = {
    entry: {
-       app: './index.jsx',
+       app: './index.js',
    },
    context: path.resolve(__dirname, "src"),
    output: {
@@ -16,13 +16,17 @@ module.exports = {
         rules: [
             {
                 test: /\.(js|jsx)$/,
-                include: path.resolve(__dirname, "src"),
+                //include: path.resolve(__dirname, "src"),
                 loader: 'babel-loader',
                 exclude: /node_modules/,
                 options: {
-                presets: ['@babel/env', '@babel/react'],
+                    presets: ['@babel/env', '@babel/react'],
                 }
             },
+            {
+                test: /\.(scss|css)$/,
+                use: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader'],
+            }
         ],
     },
     plugins: [
