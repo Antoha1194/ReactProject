@@ -35,9 +35,11 @@ export default class App extends React.Component {
     addMessage = (value) => this.setState({message: [...this.state.message, value]});  
 
     render() {
-      return <div className="message-field">
-                <Message message={this.state.message}/>
-                <SendMessage addMessage={this.addMessage} />
+      return <div className={`message-field ${this.props.sizeCol}`}>
+                <div className="messages">
+                    <Message message={this.state.message}/>
+                </div>
+                <SendMessage addMessage={this.addMessage} />    
             </div>;
     }
   }
