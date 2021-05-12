@@ -1,4 +1,5 @@
 import React from 'react';
+import { AUTHOR } from '../const';
 export default class SendMessage extends React.Component {
 
     constructor(props){
@@ -6,24 +7,22 @@ export default class SendMessage extends React.Component {
 
         this.state = {
             message: {
-                author: 'HUMAN', 
+                author: AUTHOR.BOT, 
                 message: ''
             }
         };
 
-        this.hadlerMessage = this.hadlerMessage.bind(this);
-        this.updateState = this.updateState.bind(this);
+        
     }
 
-    updateState(e){
-        this.setState({message: {author: 'HUMAN', message: e.target.value} });
-    }
+    updateState = (e) => this.setState({message: {author: AUTHOR.HUMAN, message: e.target.value} });
 
-    hadlerMessage(e){
+
+    hadlerMessage = (e) => {
         e.preventDefault();
         let message = this.state.message;
         this.props.addMessage(message);
-        this.setState({message: {author: 'HUMAN', message: ''}})
+        this.setState({message: {author: AUTHOR.HUMAN, message: ''}})
     }
 
     render() {
