@@ -29,7 +29,7 @@ export default class SendMessage extends React.Component {
     render() {
       return <Form className="form">
                 <Form.Control type="text" className="form__inp" value={this.state.message.message} onChange={this.updateState} />
-                <Button type="submit" className="form__sbm" onClick={this.hadlerMessage}>Отправить</Button>
+                <Button type="submit" disabled={(this.state.message.message == '')? 'disabled': false} className="form__sbm" onClick={this.hadlerMessage}>Отправить</Button>
             </Form>
     }
   }
