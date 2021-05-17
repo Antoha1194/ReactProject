@@ -8,6 +8,7 @@ export default class SendMessage extends React.Component {
 
         this.state = {
             message: {
+                id: '',
                 author: AUTHOR.BOT, 
                 message: ''
             }

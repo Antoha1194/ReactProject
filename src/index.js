@@ -1,9 +1,13 @@
 import './style.scss';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Layout from './components/Layout.jsx'
+import Route from './components/Route.jsx'
+import { BrowserRouter } from 'react-router-dom';
 
 ReactDOM.render(
-    <Layout />,
+  <BrowserRouter>
+    <Route/>
+  </BrowserRouter>
+    ,
     document.getElementById('root')
   );

@@ -1,14 +1,24 @@
 @import "~bootstrap/scss/bootstrap";
 
 .fulHeight{
-    height: 90vh;
+    height: 85vh;
 }
+a{
+    text-decoration: none;
+    color: #ffff;
+    &:hover{
+        text-decoration: none;
+    }
+}
+
 body{
     background: #131c21;
     color: white;
 }
 .header{
-    height: 10vh;
+    height: 15vh;
+    display: flex;
+    align-items: center;
 }
 .message-field{
     display: flex;
@@ -90,4 +100,40 @@ body{
         }
     }
 
+}
+.profile{
+    border: 1px solid rgb(110, 110, 110);
+    &__h{
+        text-align: center;
+    }
+    &__item{
+        background-color: #131c21;
+    }
+    &__img{
+        width: 150px;
+        height: 150px;
+        margin: auto;
+        display: block;
+    }
+}
+
+.userbar{
+    display: flex;
+    align-items: center;
+
+    &__img{
+        width: 70px;
+        height: 70px;
+    }
+    
+
+    &__info{
+        font-size: 14px;
+        margin-left: 10px;
+    }
+    &__name, &__status{
+        margin:0;
+    }
+    
+    
 }

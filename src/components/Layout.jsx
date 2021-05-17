@@ -2,7 +2,9 @@ import React from 'react';
 import MessageField from './MessageField.jsx'
 import Header from './Header.jsx';
 import ChatList from './ChatList.jsx';
-export default class App extends React.Component {
+import Profile from './Profile.jsx';
+
+export default class Layout extends React.Component {
 
     constructor(props){
         super(props);
@@ -20,10 +22,6 @@ export default class App extends React.Component {
                 {
                     id: 3,
                     name: 'Chat #3'
-                },
-                {
-                    id: 4,
-                    name: 'Chat #4'
                 }
             ]
         }
@@ -36,7 +34,8 @@ export default class App extends React.Component {
                 </div>
                 <div className="row fulHeight">
                     <ChatList chats={this.state.chats} sizeCol="col-md-3"/>
-                    <MessageField sizeCol="col-md-9"/>
+                    {(this.props.showProfile)? <Profile sizeCol="col-md-9" />: <MessageField chatId={this.props.chatId} sizeCol="col-md-9"/>}
+                    
                 </div>
             </main>;
     }
