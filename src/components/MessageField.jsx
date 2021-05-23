@@ -1,74 +1,57 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Message from './Message.jsx';
 import SendMessage from './SendMessage.jsx';
 import {AUTHOR} from '../const';
-export default class App extends React.Component {
+import { useSelector, useDispatch } from 'react-redux';
+import { chatAddMessage } from '../store/chats/actions'
+import { addMessage as storeAddMessage } from '../store/messages/actions'
 
-    constructor(props){
-        super(props);
-        this.state = {
-            chats: {
-                1:{
-                    name: 'Chat #1',
-                    messages: [1,2]
-                },
-                2:{
-                    name: 'Chat #2',
-                    messages: [2]
-                },
-                3:{
-                    name: 'Chat #3',
-                    messages:[]
-                }
-            },
-            message: {
-                1: {
-                    author: AUTHOR.BOT,
-                    message: 'Привет'
-                },
-                2: {
-                    author: AUTHOR.BOT,
-                    message: 'Как дела?'
-                }
-            }
-        };
-    }
 
-    componentDidUpdate(prevProps, prevState){
-        const {message, chats} = this.state;
-        let lastMessage = message[Object.keys(message).length];
+export default function MessageField(props){
+    const chats = useSelector(state => state.chats);
+    const messages = useSelector(state => state.messages);
+    const dispatch = useDispatch();
+
+   
+    const addMessage = (id) => {
+        
+        dispatch(chatAddMessage(props.chatId, id))
+        // setMessages(
+        //     {
+        //         ...messages,
+        //         [newMessageId]: {author, text}
+        //     }
+        // );
+        // setChats(
+        //     {
+        //         ...chats, 
+        //         [props.chatId]: {
+        //             messages: [...messageActiveChat, newMessageId] 
+        //         }
+        //     }
+        // )
+    };  
+
+    useEffect(() => {
+        let lastMessage = messages[Object.keys(messages).length];
          if (lastMessage.author == AUTHOR.HUMAN) {
                 console.log(lastMessage);
             setTimeout(() => {
-                this.addMessage({author: AUTHOR.BOT, message: 'I am Bot'})
+                dispatch(storeAddMessage('I am Bot', AUTHOR.BOT));
+                addMessage(Object.keys(messages).length +1);
             }, 1000);   
              
         }
+    })
 
-    }
 
-    addMessage = (value) => {
-        const { message, chats} = this.state;
-        const newMessageId = Object.keys(this.state.message).length + 1;
-        const messageActiveChat = this.state.chats[this.props.chatId].messages;
-
-        this.setState({
-            message: {
-                    ...message,
-                    [newMessageId]: {...value}
-                },
-            chats: {...chats, [this.props.chatId]: {messages: [...messageActiveChat, newMessageId] }}
-            })
-    };  
-
-    render() {
-    const { message, chats} = this.state;
-      return <div className={`message-field ${this.props.sizeCol}`}>
+    return <div className={`message-field ${props.sizeCol}`}>
                 <div className="messages">
-                    {chats[this.props.chatId].messages.map(item =>  <Message key={item} message={message[item]}/> )}
-                    
+                    {chats[props.chatId].messages.map(item =>  <Message key={item} message={messages[item]}/> )}
+                
                 </div>
-                <SendMessage addMessage={this.addMessage} />    
+                <SendMessage addMessage={addMessage} />    
             </div>;
-    }
-  }
+
+}
+

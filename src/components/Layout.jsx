@@ -1,42 +1,20 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import MessageField from './MessageField.jsx'
 import Header from './Header.jsx';
 import ChatList from './ChatList.jsx';
 import Profile from './Profile.jsx';
 
-export default class Layout extends React.Component {
 
-    constructor(props){
-        super(props);
-
-        this.state = {
-            chats: [
-                {
-                    id: 1,
-                    name: 'Chat #1'
-                },
-                {
-                    id: 2,
-                    name: 'Chat #2'
-                },
-                {
-                    id: 3,
-                    name: 'Chat #3'
-                }
-            ]
-        }
-    }
-
-    render() {
-      return <main className="container">
+export default function Layout(props){
+    
+    return  <main className="container">
                 <div className="row">
                     <Header sizeCol="col-md-12"/>
                 </div>
                 <div className="row fulHeight">
-                    <ChatList chats={this.state.chats} sizeCol="col-md-3"/>
-                    {(this.props.showProfile)? <Profile sizeCol="col-md-9" />: <MessageField chatId={this.props.chatId} sizeCol="col-md-9"/>}
-                    
+                    <ChatList sizeCol="col-md-3"/>
+                    {(props.showProfile)? <Profile sizeCol="col-md-9" />: <MessageField chatId={props.match.params.id} sizeCol="col-md-9"/>}
+                
                 </div>
             </main>;
-    }
-  }
+}
