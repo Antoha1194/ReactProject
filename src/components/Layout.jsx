@@ -12,7 +12,7 @@ export default function Layout(props){
                     <Header sizeCol="col-md-12"/>
                 </div>
                 <div className="row fulHeight">
-                    <ChatList sizeCol="col-md-3"/>
+                    <ChatList sizeCol="col-md-3" chatId={props.match?.params.id}/>
                     {(props.showProfile)? <Profile sizeCol="col-md-9" />: <MessageField chatId={props.match.params.id} sizeCol="col-md-9"/>}
                 
                 </div>

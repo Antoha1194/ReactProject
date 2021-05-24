@@ -12,6 +12,7 @@ module.exports = {
        path: path.resolve(__dirname, "static", "build"),
        filename: 'app.js',
    },
+   devtool: 'eval',
    module: {
         rules: [
             {

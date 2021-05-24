@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { Button, ListGroup} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { chatAdd } from '../store/chats/actions';
+import { chatAdd, chatDrop } from '../store/chats/actions';
 
 
 export default function ChatList(props){
@@ -12,17 +12,23 @@ export default function ChatList(props){
     const addChat = (e) => {
         dispatch(chatAdd);
     }
+
+
+
+    const togleClassActive = (flag) => flag? 'blick': '';
    
     return <section className={`section-left ${props.sizeCol}`}>
                 <ListGroup className='chat-list'>
                     {
                         Object.entries(chats).map(([key,item]) => (
                              <Link to={`/chat/${key}`}>
-                                <ListGroup.Item className="chat-list__item">{item.name}</ListGroup.Item>
+                                <ListGroup.Item className={`chat-list__item ${togleClassActive(item.newMessage)}` }>
+                                    {item.name}
+                                </ListGroup.Item>
                             </Link> 
                         ))
                     }
                 </ListGroup>
-                <Button onClick={addChat}>Добавить чат</Button>
+                <Button className="chat-btn" onClick={addChat}>Добавить чат</Button>
             </section> 
 }

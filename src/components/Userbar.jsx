@@ -1,6 +1,5 @@
 import React from 'react';
 import {Image} from 'react-bootstrap';
-import img from '../image/ava.jpg';
 import { useSelector } from 'react-redux';
 
 

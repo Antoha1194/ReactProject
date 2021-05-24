@@ -4,14 +4,18 @@ import ReactDOM from 'react-dom';
 import Route from './components/Route.jsx'
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import { store } from './store';
-
+import data from './store';
+import { PersistGate } from 'redux-persist/integration/react'
+const { store, persistor } = data();
 
 ReactDOM.render(
   <Provider store={store}>
-    <BrowserRouter>
-      <Route/>
-    </BrowserRouter>
+    <PersistGate loading={null} persistor={persistor}>
+      <BrowserRouter>
+        <Route/>
+      </BrowserRouter>
+    </PersistGate>
+    
   </Provider>
  
     ,
