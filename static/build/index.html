@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title><%= htmlWebpackPlugin.options.title %></title>
-  </head>
+    <title>App</title>
+  <script defer src="app.js"></script></head>
   <link rel="manifest" href="manifest/manifest.json">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <body>
     <div id="root"></div>
   </body>
@@ -25,6 +24,5 @@
         console.log('ServiceWorker не поддерживается');
     }
  </script>
- <script src="/notifications.js"></script>
  
 </html>

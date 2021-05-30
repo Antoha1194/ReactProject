@@ -40,7 +40,6 @@ module.exports = {
             template: path.resolve(__dirname, './src/index.html'),
             filename: 'index.html', 
         }),
-        new CleanWebpackPlugin(),
         new webpack.HotModuleReplacementPlugin(),
     ],
     devServer: {

@@ -5,6 +5,7 @@ import Route from './components/Route.jsx'
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import data from './store';
+
 import { PersistGate } from 'redux-persist/integration/react'
 const { store, persistor } = data();
 
@@ -21,3 +22,4 @@ ReactDOM.render(
     ,
     document.getElementById('root')
   );
+
