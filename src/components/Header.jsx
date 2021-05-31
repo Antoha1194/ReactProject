@@ -5,9 +5,10 @@ import PushToogle from './PushToogle.jsx';
 
 export default function Header(props){
     return <header className={`header ${props.sizeCol}`}>
-                <PushToogle/>
+                
                 <Link to={`/profile`}>
                     <UserBar />
                 </Link>
+                <PushToogle/>
             </header>
 }

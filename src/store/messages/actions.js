@@ -24,7 +24,7 @@ export const addMessageWithThunk = (text, author, chatId) => (dispatch, getState
         dispatch(addMessage(text, author));
         dispatch(chatAddMessage(chatId, Object.keys(getState().messages).length));
         if(author !== AUTHOR.BOT ){
-            let xml = `<chat application='7478065272013953235' instance='165'><message>${text}</message></chat>`;
+            let xml = `<chat application='7188180525264576194' instance='38850303'><message>${text}</message></chat>`;
             fetch("https://www.botlibre.com/rest/api/chat", {
                 method: "POST",
                 headers: {
@@ -35,7 +35,6 @@ export const addMessageWithThunk = (text, author, chatId) => (dispatch, getState
             }).then(res => res.text()).then(res => {
                 const xml  = parser.parseFromString(res, "application/xml");
                 const domElnameMessage = xml.getElementsByTagName('message')[0];
-                console.log(domElnameMessage.textContent);
                 dispatch(addMessage(domElnameMessage.textContent, AUTHOR.BOT));
                 dispatch(chatAddMessage(chatId, Object.keys(getState().messages).length));
                 dispatch(chatSignalMessage(chatId));

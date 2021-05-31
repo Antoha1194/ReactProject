@@ -1,14 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>App</title>
-  <script defer src="app.js"></script></head>
-  <link rel="manifest" href="manifest/manifest.json">
-  <body>
-    <div id="root"></div>
-  </body>
-  <script>
-    if ('serviceWorker' in navigator) {
+<!doctype html><html lang="ru"><head><title>App</title><script defer="defer" src="app.js"></script></head><link rel="manifest" href="manifest/manifest.json"><meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no"><body><div id="root"></div></body><script>if ('serviceWorker' in navigator) {
         window.addEventListener('load', function() {
             navigator.serviceWorker.register('/sw.js').then(function(registration) {
                 // Registration was successful
@@ -22,7 +12,4 @@
         });
     } else {
         console.log('ServiceWorker не поддерживается');
-    }
- </script>
- 
-</html>
+    }</script><script src="/notifications.js"></script></html>

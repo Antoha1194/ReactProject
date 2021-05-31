@@ -44,8 +44,8 @@
       }
     ],
     "start_url": "/",
-    "background_color": "#7ACCE5",
-    "theme_color": "#7ACCE5",
+    "background_color": "#131c21",
+    "theme_color": "#131c21",
     "orientation": "any",
     "display": "standalone",
     "gcm_sender_id": "1234567890"
