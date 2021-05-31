@@ -1,0 +1,191 @@
+@import "~bootstrap/scss/bootstrap";
+
+.blick {
+    animation-name: blinker;
+    animation-iteration-count: infinite;
+    animation-timing-function: cubic-bezier(1.0,0,0,1.0);
+    animation-duration: .5s;
+    -webkit-animation-name: blinker;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: cubic-bezier(1.0,0,0,1.0);
+    -webkit-animation-duration: .5s;
+  }
+   
+  @keyframes blinker {
+    from { opacity: 1.0; }
+    to { opacity: 0.0; }
+  }
+   
+  @-webkit-keyframes blinker {
+    from { opacity: 1.0; }
+    to { opacity: 0.0; }
+  }
+
+
+.fulHeight{
+    height: 85vh;
+}
+a{
+    text-decoration: none;
+    color: #ffff;
+    &:hover{
+        text-decoration: none;
+    }
+}
+
+body{
+    background: #131c21;
+    color: white;
+}
+.header{
+    height: 15vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #949494;
+}
+.message-field{
+    display: flex;
+    flex-direction: column;
+    background-color: #131c21;
+    border: 1px solid rgb(110, 110, 110);
+    justify-content: space-between;
+    
+}
+.messages{
+    display: flex;
+    flex-direction: column;
+   
+}
+.message{
+    margin: 10px 0;
+    width: fit-content;
+    padding: 10px;
+    border-radius: 5px;
+
+    &_pos-right{
+        align-self: flex-end;
+        background-color: #00af9c;
+    }
+    &_pos-left{
+        align-self: flex-start;
+        background-color: #707070;
+    }
+}
+
+.form{
+    margin: 0 0 30px 0;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    &__inp{
+        width: 100%;
+        background: #131c21;
+        border: 1px solid;
+        border-radius: 25px;
+        height: 50px;
+    }
+    &__sbm{
+        z-index: 5;
+    right: 0px;
+    position: absolute;
+    height: 50px;
+    border-radius: 0 25px 25px 0;
+    background-color: #00af9c;
+    outline: none;
+    border: none;
+
+        &:hover{
+            background-color: #08c5af;  
+            border: none;
+        }
+        &:disabled{
+            background-color: #059685;
+            border: none;
+        }
+        &:focus{
+            background-color: #08c5af;  
+            border: none;
+            box-shadow: none;
+        }
+        &:active{
+            background-color: #08c5af;  
+            border: none;
+        }
+
+    }
+}
+.section-left{
+    border: 1px solid rgb(110, 110, 110);
+    margin-right: -2px;
+}
+.chat-list{
+    color: white;
+    margin-top: -1px;
+    margin: -1px -15px 0 -16px;
+    &__item{
+        background-color: #131c21;
+        border: 1px solid rgb(110, 110, 110);
+        &:hover{
+            background-color: #1c282f;
+        }
+    }
+
+}
+.profile{
+    border: 1px solid rgb(110, 110, 110);
+    &__h{
+        text-align: center;
+    }
+    &__item{
+        background-color: #131c21;
+    }
+    &__img{
+        width: 150px;
+        height: 150px;
+        margin: auto;
+        display: block;
+    }
+}
+
+.userbar{
+    display: flex;
+    align-items: center;
+
+    &__img{
+        width: 70px;
+        height: 70px;
+    }
+    
+
+    &__info{
+        font-size: 14px;
+        margin-left: 10px;
+    }
+    &__name, &__status{
+        margin:0;
+    }
+    
+    
+}
+
+.chat-btn{
+    width: 100%;
+    background-color: #131c21;
+    border: 1px solid #6e6e6e;
+    margin: 15px auto;
+
+    &:hover{
+        background-color: rgb(59, 59, 59);
+        border-color: #6e6e6e;
+        box-shadow: none;
+    }
+    &:active{
+        background-color: #131c21;
+    }
+    &:focus{
+        background-color: #131c21;
+        border-color: #6e6e6e;
+        box-shadow: none;
+    }
+}

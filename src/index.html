@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <title><%= htmlWebpackPlugin.options.title %></title>
+  </head>
+  <link rel="manifest" href="manifest/manifest.json">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <body>
+    <div id="root"></div>
+  </body>
+  <script>
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+            navigator.serviceWorker.register('/sw.js').then(function(registration) {
+                // Registration was successful
+                console.log('ServiceWorker успешно зарегистрирован со сферой действия: ', registration.scope);
+                }, function(err) {
+                // registration failed :(
+                console.log('ServiceWorker не удалось зарегистрировать: ', err);
+            }).catch(function(err) {
+                console.log(err)
+            });
+        });
+    } else {
+        console.log('ServiceWorker не поддерживается');
+    }
+ </script>
+ <script src="/notifications.js"></script>
+ 
+</html>
